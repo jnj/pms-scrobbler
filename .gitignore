@@ -2,3 +2,7 @@
 target
 project/build/boot
 project/boot
+project/plugins/lib_managed
+project/plugins/project
+project/plugins/src_managed
+lib/pms.jar

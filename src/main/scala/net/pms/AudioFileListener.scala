@@ -1,24 +1,27 @@
 package net.pms
 
 import net.pms.dlna.{DLNAMediaInfo, DLNAResource}
-import net.pms.external.StartStopListener
+import net.pms.external.{ExternalListener, StartStopListener}
 
 import javax.swing._
 
-class AudioFileListener extends StartStopListener {
-  def nowPlaying(media: DLNAMediaInfo, resource: DLNAResource) = {
+sealed class AudioFileListener extends StartStopListener with ExternalListener {
+
+  override def nowPlaying(media: DLNAMediaInfo, resource: DLNAResource) = {
   }
 
-  def donePlaying(media: DLNAMediaInfo, resource: DLNAResource) = {
+  override def donePlaying(media: DLNAMediaInfo, resource: DLNAResource) = {
   }
   
-  def config(): JComponent = {
+  override def config(): JComponent = {
     null
   }
   
-  def name() = "pms-scrobbler"
+  override def name(): String = { 
+    "pms-scrobbler"
+  }
   
-  def shutdown() = {
+  override def shutdown() = {
   }
 }
 
